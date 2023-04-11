@@ -20,50 +20,59 @@
 <h3>Suscribase a Nuestro Portal de Noticias! Crear una cuenta es rápido!</h3>
 <img src="imagenes/registrate.png" height="131" width="383"/>
 <form>
+    <fieldset>
+        <legend>Nombre y Apellido</legend>
     <p>
-Nombre: <input type="text" name="nombre">
+    <label for="nombre" >Nombre:</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
     </p>
     <p>
-    Apellido:<input type="text" name="apellido">
+        <label for="apellido">Apellido:</label>
+    <input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido">
     </p>
+    </fieldset>
     <p>
     Sexo:
         <br>
-        Masculino <input type="radio" value="masculino" name="genero">
+        <label for="masculino" > Masculino </label>
+        <input type="radio" value="masculino" name="genero" id="masculino">
         </br>
         <br>
-        Femenino<input type="radio" value="femenino" name="genero">
+        <label for="femenino" >Femenino</label>
+        <input type="radio" value="femenino" name="genero" id="femenino">
         </br>
         <br>
-        No binario <input type="radio" value="No binario" name="genero">
+        <label for="No binario" >No binario</label>
+         <input type="radio" value="No binario" name="genero" id="No binario">
         </br>
         <br>
-        Prefiero no revelarlo <input type="radio" value="noRev" name="genero">
+        <label for="Prefiero no revelarlo"> Prefiero no revelarlo</label>
+         <input type="radio" value="noRev" name="genero" id="Prefiero no revelarlo">
         </br>
     </p>
     <p>
-
-    Edad:<input type="number" name="edad">
+<label for="Edad">Edad: </label>
+    <input type="number" name="edad" id="edad" placeholder="Ingrese su edad">
     </p>
     <p>
-
-    Email: <input type="email" name="email">
+<label for="Email"> Email:</label>
+    <input type="email" name="email" id="Email" placeholder="Ingrese su mail">
     </p>
     <p>
-
-    Usuario: <input type="text" name="usuario">
+<label for="Usuario">Usuario:</label>
+     <input type="text" name="usuario" id="Usuario" placeholder="Ingrese el nombre que quiere tener">
     </p>
     <p>
-
-    Password: <input type="password" name="password">
+<label for="Password"> Password:</label>
+    <input type="password" name="password" id="Password" placeholder="Cree una contraseña">
     </p>
     <p>
-
-    Confirmar Password: <input type="password" name="password2">
+<label for="Confirmar Password">Confirmar Password:</label>
+     <input type="password" name="password2" id="Confirmar Password" placeholder="Reescriba">
     </p>
     <p>
-    Tipo de servicio:
-        <select name="tipo_servicio">
+        <label for="tiposervicio">Tipo de servicio:</label>
+        <select name="tipo_servicio" id="tiposervicio">
         <option value="Free" >Free</option>
             <option value="Standard"> Standard</option>
             <option value="Premium">Premium</option>
@@ -71,14 +80,19 @@ Nombre: <input type="text" name="nombre">
     </p>
     <p>
     Tema:
-    Política <input type="checkbox" name="tema" value="politica">
-    Negocios<input type="checkbox" name="tema" value="negocios">
-    Tecnología<input type="checkbox" name="tema" value="tecnologia">
-    Salud<input type="checkbox" name="tema" value="salud">
+        <label for="politica">Política</label>
+     <input type="checkbox" name="tema" value="politica" id="politica">
+        <label for="negocios">Negocios</label>
+    <input type="checkbox" name="tema" value="negocios" id="negocios">
+        <label for="tecnologia">Tecnología</label>
+    <input type="checkbox" name="tema" value="tecnologia" id="tecnologia">
+        <label for="salud">Salud</label>
+    <input type="checkbox" name="tema" value="salud" id="salud">
     </p>
     <p>
-Agregue un comentario:
-        <textarea></textarea>
+        <label for="ingreseuncomentario">Agregue un comentario:</label>
+
+        <textarea id="ingreseuncomentario" placeholder="Ingresa un comentario"></textarea>
     </p>
     <p>
         <button>
