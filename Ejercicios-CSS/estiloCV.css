@@ -1,0 +1,31 @@
+div{
+    border: 4px solid aquamarine;     /* grosor, tipo de color y color del borde */
+    margin: 2% 3%;       /* margen topbottom y rightleft */
+    padding: 15px;
+    background-color: rgba(64, 248, 227, 0.5);
+    border-radius: 30px;    /* circular y no deforme, usamos pixeles en vez de porcentaje */
+    box-shadow: 10px 5px mediumseagreen;    /* hace que las cajas parezca que sobresalen */
+}
+#cv {
+    float: left;     /*cambiar de lugar el elemento*/
+    width: 7%;
+    border-radius: 10%;
+}
+
+body{
+    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to right, seagreen, lightgreen);    /*  gradiente de izquierda a derecha */
+}
+
+h1, h2, h3{
+    text-shadow: 2px 3px darkgrey;    /* mov horizontal, mov vertical, color */
+}
+
+.tituloPrincipal{
+    font-weight: bold;
+}
+
+#principal{
+    background-color: #19ac67;
+}
