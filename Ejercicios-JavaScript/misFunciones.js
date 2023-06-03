@@ -261,3 +261,201 @@ function cargarLocalStorage(){
     document.getElementById("dist").value= cant + " " + un;
 
 }
+
+/**
+ * Dibujamos un circulo y un cuadrado
+ * @method dibujarCircCuad
+ */
+
+function dibujarCircCuad(){
+    var canvas=document.getElementById("myCanvas");
+    var ctx=canvas.getContext("2d");
+
+    var yMax=canvas.height;
+    var xMax=canvas.width;
+    var margen=5;
+
+    ctx.fillStyle="#333899";
+    ctx.fillRect(0+margen,yMax-40-margen,40,40);
+
+    ctx.arc(xMax/2, yMax/2, 20, 0, 2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle="rgba(239,74,221,0.5)";
+    ctx.fill();
+
+}
+
+/**
+ * MINI PAINT
+ * @method dibujar
+ */
+
+let bandera;
+let dibujar = (event) => {
+    let canvas = document.getElementById("canvasAdibujar");
+    let ctx = canvas.getContext("2d");
+
+    let posX = event.clientX;
+    let posY = event.clientY;
+    console.log(posX, posY);
+
+    canvas.onmousedown = function () {
+        bandera = true
+    };
+    canvas.onmouseup = function () {
+        bandera = false
+    };
+    if (bandera) {
+        ctx.fillRect(posX, posY, 5, 5);
+        ctx.fill;
+    }
+}
+
+/**
+ * LIMPIAR MINI PAINT
+ * @method limpiarcanvas
+ */
+
+let limpiarcanvas = () =>{
+    let canvas = document.getElementById("canvasAdibujar");
+    let ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.width;
+}
+
+/**
+ * Realizamos cuadriculado
+ * @method dibujo2
+ */
+
+function dibujarCuadriculado() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var alturaMax=canvas.height;
+    var anchoMax=canvas.width;
+
+    //Dibujamos lineas horizontales
+
+    ctx.beginPath();
+    for(var i=0;i<alturaMax;){
+        ctx.moveTo(0,i);
+        ctx.lineTo(anchoMax,i);
+        ctx.strokeStyle = "#e07b90";
+        ctx.stroke();
+        i=i+20;
+    }
+    ctx.closePath();
+
+    //Dibujamos lineas verticales
+
+    ctx.beginPath();
+
+    for(var i=0;i<anchoMax;){
+
+        ctx.moveTo(i,0);
+        ctx.lineTo(i,alturaMax);
+        ctx.strokeStyle = "#e07b90";
+        ctx.stroke();
+        i=i+20;
+    }
+
+    ctx.closePath();
+
+    //EJE X
+
+    ctx.beginPath();
+
+        ctx.moveTo(0,alturaMax/2);
+        ctx.lineTo(anchoMax,alturaMax/2);
+        ctx.strokeStyle = "#0e5cfa";
+        ctx.stroke();
+
+    ctx.closePath();
+
+    //EJE Y
+
+    ctx.beginPath();
+
+    ctx.moveTo(anchoMax/2,0);
+    ctx.lineTo(anchoMax/2,alturaMax);
+    ctx.strokeStyle = "#0e5cfa";
+    ctx.stroke();
+
+    ctx.closePath();
+
+}
+
+/**
+ * Dibujamos autito rojo en canvas y permitimos limpiar el canvas
+ * @method dibujarImagen
+ * @param {number} posX - Posicion en x que ingresa el usuario en el input de name inp_x
+ * @param {number} posY - Posicion en y que ingresa el usuario en el input de name inp_y
+ */
+
+let dibujarImagen = (posX, posY) => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    console.log(posX, posY);
+
+    const anchoMax = canvas.width;
+    const alturaMax = canvas.height;
+
+    let img = new Image();
+    img.src = "images/auto.png";
+
+    if (posX < 0 || posY < 0 || posX >= anchoMax || posY >= alturaMax) {  //Entonces no se podria dibujar porque valores exceden los limites
+        openDialog();
+    } else {
+        img.onload = function () {
+            ctx.drawImage(img, posX, posY);
+        }
+    }
+}
+
+/**
+ * Abrimos dialog si el usuario ingresa algun dato que excede limites dentro del canvas
+ * @method openDialog
+ */
+
+let openDialog = () => {
+    const dialog = document.getElementById("myDialog");
+    dialog.showModal();
+}
+
+/**
+ * Cerramos el dialog
+ * @method cerrarDialog
+ */
+
+let cerrarDialog = () => {
+    const dialog = document.getElementById("myDialog");
+    dialog.close();
+}
+
+/**
+ * Animamos la imagen del auto rojo con tal de que se mueva a lo largo del canvas
+ * @method animarAuto
+ */
+
+var x = 0;
+var dx = 2;
+let animarAuto = () => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let img = new Image();
+    img.src = "images/auto.png";
+
+    img.onload = function () {
+        canvas.width = canvas.width;
+        ctx.drawImage(img, x, 100);
+    }
+    x += dx;
+    console.log("La coordenada X es: " + x);
+    if (x > canvas.width) { //reseteando la variable, no toma valores tan grandes
+        x = 0;
+    }
+}
+
