@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body >
 <h1>Canvas 3</h1>
 <p>Ejercicio: Dibujar  la imagen 'auto.png' en el canvas desde la posición pasada por parámetro. La función debe llamarse al presionar el boton.</p>
 
@@ -22,7 +22,7 @@
         <p>
             <label for="posicionY"> Y</label> = <input id="posicionY" type="text" name="inp_y">
         </p>
-        <button type="button" onclick="dibujarImagen(inp_x.value, inp_y.value)">
+        <button type="button" onclick="dibujarImagen(inp_x.value, inp_y.value); setInterval(animarAuto,50)">
             Dibujar!
         </button>
     </form>
